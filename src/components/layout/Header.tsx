@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X, Download, Mail } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 export function Header() {
   const { theme, setTheme } = useTheme();
@@ -65,11 +65,11 @@ export function Header() {
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
-            <Button variant="outline" size="sm" className="hover-lift">
+            <Button variant="outline" size="sm">
               <Download className="h-4 w-4 mr-2" />
               CV
             </Button>
-            <Button variant="default" size="sm" className="bg-gradient-primary hover:shadow-glow">
+            <Button variant="premium" size="sm">
               <Mail className="h-4 w-4 mr-2" />
               Contact
             </Button>
@@ -114,7 +114,7 @@ export function Header() {
                     <Download className="h-4 w-4 mr-1" />
                     CV
                   </Button>
-                  <Button variant="default" size="sm" className="bg-gradient-primary">
+                  <Button variant="premium" size="sm">
                     <Mail className="h-4 w-4 mr-1" />
                     Contact
                   </Button>

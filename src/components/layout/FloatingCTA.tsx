@@ -71,9 +71,8 @@ export function FloatingCTA() {
       {/* Main CTA Button */}
       <Button
         size="lg"
-        className={`bg-gradient-primary hover:shadow-glow transition-all duration-300 ${
-          isExpanded ? "rounded-full" : "rounded-full"
-        }`}
+        variant="premium"
+        className="rounded-full shadow-lg hover:shadow-glow"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {isExpanded ? (
