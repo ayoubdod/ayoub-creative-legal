@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, X, Mail, Calendar, FileText } from "lucide-react";
+import { ContactButtonSuite } from "@/components/contact/ContactButtons";
 
 export function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,21 +50,36 @@ export function FloatingCTA() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-scale-in">
-      {/* Expanded Menu */}
+      {/* Enhanced Contact Menu */}
       {isExpanded && (
         <div className="absolute bottom-16 right-0 mb-4 animate-slide-up">
-          <div className="bg-card border border-border rounded-lg shadow-elegant p-2 min-w-48">
-            {actions.map((action, index) => (
-              <Button
-                key={index}
-                variant="ghost"
-                className="w-full justify-start mb-1 last:mb-0 hover:bg-primary hover:text-primary-foreground"
-                onClick={action.action}
-              >
-                <action.icon className="h-4 w-4 mr-3" />
-                {action.label}
-              </Button>
-            ))}
+          <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg shadow-elegant p-4 min-w-[280px]">
+            <h4 className="font-semibold mb-3 text-sm text-center">Quick Contact</h4>
+            
+            {/* Contact Button Suite */}
+            <div className="space-y-2 mb-4">
+              <ContactButtonSuite />
+            </div>
+            
+            {/* Traditional Actions */}
+            <div className="border-t border-border pt-3 space-y-1">
+              {actions.map((action, index) => (
+                <Button
+                  key={index}
+                  variant="ghost"
+                  size="sm"
+                  className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                  onClick={action.action}
+                >
+                  <action.icon className="h-4 w-4 mr-3" />
+                  {action.label}
+                </Button>
+              ))}
+            </div>
+            
+            <div className="text-xs text-muted-foreground mt-3 pt-3 border-t border-border text-center">
+              💬 Choose your preferred way to connect
+            </div>
           </div>
         </div>
       )}
